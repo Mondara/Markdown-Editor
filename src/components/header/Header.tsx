@@ -1,12 +1,13 @@
-import React from 'react'
-import { MarkdownContext } from '../../context'
+import React from 'react';
+
+import { MarkdownContext } from '../../context';
 
 interface Props {
     toggleSidebar: () => void;
 }
 
 export const Header: React.FC<Props> = ({ toggleSidebar }) => {
-    const { currDoc, saveDoc, deleteDoc, updateDoc } = React.useContext(MarkdownContext);
+    const { docs, currDoc, saveDoc, deleteDoc, updateDoc } = React.useContext(MarkdownContext);
 
     const [docName, setDocName] = React.useState(currDoc.name)
 
@@ -47,14 +48,16 @@ export const Header: React.FC<Props> = ({ toggleSidebar }) => {
                         <input type="text"
                             value={docName}
                             onChange={handleDocChange}
-                            className="outline-none header-color header-text-color focus:underline" />
+                            className="outline-none header-color header-text-color focus:underline" 
+                        />
+                            
                     </div>
                 </div>
             </div>
 
             <div className="flex items-center gap-8 p-2 mr-2">
-                <button onClick={() => deleteDoc()}>
-                    <svg className="fill-light-gray-3 hover:fill-orange" width="18" height="20" xmlns="http://www.w3.org/2000/svg">
+                <button onClick={() => deleteDoc()} disabled={docs.length === 0}>
+                    <svg className={`fill-light-gray-3 ${docs.length != 0 ? 'hover:fill-orange' : ""}`} width="18" height="20" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 16a1 1 0 0 0 1-1V9a1 1 0 1 0-2 0v6a1 1 0 0 0 1 1ZM17 4h-4V3a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v1H1a1 1 0 1 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V6h1a1 1 0 0 0 0-2ZM7 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1H7V3Zm7 14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6h10v11Zm-3-1a1 1 0 0 0 1-1V9a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z" />
                     </svg>
                 </button>

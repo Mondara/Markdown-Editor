@@ -1,11 +1,10 @@
-import React from "react";
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { MarkdownContext } from "./MarkdownContext";
-import { getDate, getItem, setItem } from '../../utilities';
-import { Doc } from '../../types';
-
 import data from '../../assets/data.json';
+import { Doc } from '../../types';
+import { getDate, getItem, setItem } from '../../utilities';
+import { MarkdownContext } from './MarkdownContext';
 
 export const MarkdownProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [docs, setDocs] = React.useState<Doc[]>(getItem('docs') ?? [...data]);
@@ -40,8 +39,12 @@ export const MarkdownProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
 
     const saveDoc = () => {
-        const updatedDocs = docs.map((doc) => doc.id === currDoc.id ? currDoc : doc)
-        setDocs(updatedDocs);
+        if(docs.length === 0) {
+            setDocs([currDoc]);
+        } else {
+            const updatedDocs = docs.map((doc) => doc.id === currDoc.id ? currDoc : doc)
+            setDocs(updatedDocs);
+        }
     }
 
     const updateDoc = (name: string) => {

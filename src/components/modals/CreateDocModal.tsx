@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { MarkdownContext } from '../../context';
 import { Button } from '../utilities';
 
@@ -6,7 +7,7 @@ interface Props {
   closeModal: () => void;
 }
 
-export const Modal: React.FC<Props> = ({ closeModal }) => {
+export const CreateDocModal: React.FC<Props> = ({ closeModal }) => {
   const [docName, setDocName] = React.useState('');
   const { newDoc } = React.useContext(MarkdownContext);
 
@@ -20,9 +21,9 @@ export const Modal: React.FC<Props> = ({ closeModal }) => {
   return (
     <>
       <div className="absolute top-0 h-screen w-screen backdrop-blur-sm" />
-      <div className="modal-color modal-text-color absolute w-3/12 h-fit inset-0 m-auto rounded flex flex-col p-4">
+      <div className="modal-color modal-text-color absolute w-[30%] h-fit inset-0 m-auto rounded flex flex-col p-4">
         <h2>Create Document</h2>
-        <form className="flex flex-col gap-2 mt-4" onSubmit={handleSubmit}>
+        <form className="flex flex-col gap-4 my-2" onSubmit={handleSubmit}>
           <label htmlFor="name">
             Document Name:
           </label>

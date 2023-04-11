@@ -1,6 +1,7 @@
 import React from 'react';
+
+import { MarkdownContext, ThemeContext } from '../../context';
 import { Switch } from '../utilities';
-import { ThemeContext, MarkdownContext } from '../../context';
 
 interface Props {
     openModal: () => void;
@@ -8,8 +9,7 @@ interface Props {
 
 export const Sidebar: React.FC<Props> = ({ openModal }) => {
     const { theme } = React.useContext(ThemeContext);
-    const { docs, handleCurrDocChange, newDoc } = React.useContext(MarkdownContext);
-
+    const { docs, handleCurrDocChange, currDoc } = React.useContext(MarkdownContext);
 
     return (
         <div className="bg-dark-gray-3 w-full h-full flex flex-col justify-between p-6">
@@ -30,16 +30,16 @@ export const Sidebar: React.FC<Props> = ({ openModal }) => {
                 <div>
                     {docs.map((doc, idx) => (
                         <button
-                            className="flex items-center justify-start gap-4 p-4 hover:bg-dark-gray-2 w-full"
+                            className={`flex items-center justify-start gap-4 p-4 ${doc.id === currDoc.id ? 'bg-dark-gray-2' :'hover:bg-dark-gray-2'} w-full`}
                             key={doc.id}
                             onClick={() => handleCurrDocChange(idx)}
                         >
-                            <svg width="14" height="16" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="14" height="16" xmlns="http://www.w3.org/2000/svg" className='min-w-[14px]'>
                                 <path d="M13.107 3.393c.167.167.31.393.429.678.119.286.178.548.178.786v10.286c0 .238-.083.44-.25.607a.827.827 0 0 1-.607.25h-12a.827.827 0 0 1-.607-.25.827.827 0 0 1-.25-.607V.857C0 .62.083.417.25.25A.827.827 0 0 1 .857 0h8c.238 0 .5.06.786.179.286.119.512.261.678.428l2.786 2.786ZM9.143 1.214v3.357H12.5c-.06-.172-.125-.294-.196-.366L9.509 1.411c-.072-.072-.194-.137-.366-.197Zm3.428 13.643V5.714H8.857a.827.827 0 0 1-.607-.25.827.827 0 0 1-.25-.607V1.143H1.143v13.714H12.57Z" fill="#FFF" />
                             </svg>
-                            <div className="flex flex-col items-start">
+                            <div className="flex flex-col items-start justify-start">
                                 <p className="text-light-gray-3">{doc.createdAt}</p>
-                                <p className="text-white">{doc.name}</p>
+                                <p className="text-white text-start">{doc.name}</p>
                             </div>
                         </button>
                     ))}

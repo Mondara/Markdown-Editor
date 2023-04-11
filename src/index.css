@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+/* Divider Styles */
+.border {
+  border-width: 0;
+  @apply border-solid border-r-2 border-light-gray-4;
+}
+
+/* Sidebar Styles */
+.open {
+  @apply transition-all ease-in-out;
+}
+
+/* Markdown Preview Styles */
+.preview {
+  font-family: "Roboto Slab", serif;
+}
+
+.preview h1 {
+  font-size: 32px;
+  line-height: 42px;
+  @apply text-dark-gray mb-5 font-bold dark:text-white;
+}
+
+.preview h2 {
+  font-size: 24px;
+  line-height: 31px;
+  @apply text-dark-gray mb-5 font-light dark:text-white;
+}
+
+.preview h3 {
+  font-size: 28px;
+  line-height: 37px;
+  @apply text-dark-gray mb-5 font-bold dark:text-white;
+}
+
+.preview h4 {
+  font-size: 20px;
+  line-height: 37px;
+  @apply text-dark-gray mb-5 font-bold dark:text-white;
+}
+
+.preview h5 {
+  font-size: 16px;
+  line-height: 21px;
+  @apply text-dark-gray mb-5 font-bold dark:text-white;
+}
+
+.preview h6 {
+  font-size: 14px;
+  line-height: 21px;
+  @apply text-orange mb-5 font-bold;
+}
+
+.preview p {
+  @apply text-sm font-normal text-light-gray-3 mb-5 dark:text-light-gray-2;
+  line-height: 24px;
+}
+
+.preview li {
+  line-height: 24px;
+}
+
+.preview ul {
+  @apply px-4 text-sm font-normal text-light-gray-3 mb-5 dark:text-light-gray-2;
+}
+
+.preview ol {
+  @apply list-decimal px-4 text-sm font-normal text-light-gray-3 mb-5 dark:text-light-gray-2;
+}
+
+.preview ul li::before {
+  content: "\2022";
+  color: #e46643;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.preview blockquote {
+  @apply p-6 bg-light-gray-1/2 dark:bg-dark-gray-2 rounded border-l-4 border-orange mb-5;
+}
+
+.preview blockquote p {
+  @apply text-sm text-dark-gray dark:text-white font-bold m-0;
+}
+
+.preview code {
+  @apply text-dark-gray dark:text-white text-xs sm:text-sm;
+}
+
+.preview pre {
+  @apply p-3 sm:p-6 bg-light-gray-1/2 rounded mb-5 dark:bg-dark-gray-2;
+}
+
+.preview pre p {
+  @apply text-dark-gray font-normal text-sm;
+}
+
+/* Color */
+.border-color {
+  @apply dark:border-dark-gray-4;
+}
+
+.editor-header-color,
+.preview-header-color {
+  @apply dark:bg-dark-gray-3  bg-light-gray;
+}
+
+.editor-header-text-color,
+.preview-header-text-color {
+  @apply text-light-gray-3;
+}
+
+.editor-color,
+.preview-color {
+  @apply dark:bg-dark-gray-4 bg-light-gray-1/2;
+}
+
+.editor-text-color,
+.preview-text-color,
+.modal-text-color {
+  @apply dark:text-light-gray-2 text-dark-gray;
+}
+
+.header-color {
+  @apply bg-dark-gray-2;
+}
+
+.header-text-color {
+  @apply text-white;
+}
+
+.modal-color {
+  @apply dark:bg-dark-gray-2 bg-light-gray;
+}
+
+.modal-input-color {
+  @apply dark:bg-dark-gray-3 bg-light-gray-1/2;
+}
+
+.button {
+  @apply flex items-center gap-2 bg-orange p-4 rounded text-white hover:opacity-75;
+}

@@ -30,7 +30,7 @@ export const Sidebar: React.FC<Props> = ({ openModal }) => {
                 <div>
                     {docs.map((doc, idx) => (
                         <button
-                            className={`flex items-center justify-start gap-4 p-4 ${doc.id === currDoc.id ? 'bg-dark-gray-2' :'hover:bg-dark-gray-2'} w-full`}
+                            className={`flex items-center justify-start gap-4 p-4 ${doc.id === currDoc.id ? 'bg-dark-gray-2' :'hover:bg-dark-gray-2'} w-full rounded`}
                             key={doc.id}
                             onClick={() => handleCurrDocChange(idx)}
                         >

@@ -1,6 +1,6 @@
-import React from "react";
-import data from '../../assets/data.json';
-import { getDate, getItem, setItem } from '../../utilities';
+import React from 'react';
+
+import data from '../../data/data.json';
 
 const initialState = {
     docs: [...data],

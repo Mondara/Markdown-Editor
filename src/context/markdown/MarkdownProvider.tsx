@@ -1,7 +1,7 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import data from '../../assets/data.json';
+import data from '../../data/data.json';
 import { Doc } from '../../types';
 import { getDate, getItem, setItem } from '../../utilities';
 import { MarkdownContext } from './MarkdownContext';

@@ -1,5 +1,6 @@
-import React from "react";
-import { ThemeContext } from "../../context/theme/ThemeContext";
+import React from 'react';
+
+import { ThemeContext } from '../../context/theme/ThemeContext';
 
 export const Switch = () => {
   const { theme, toggleTheme } = React.useContext(ThemeContext)
@@ -15,22 +16,7 @@ export const Switch = () => {
   );
 };
 
-interface Props extends React.HTMLProps<HTMLButtonElement> {
-  children: React.ReactNode;
-  onClick?: () => void;
-  type?: 'submit' | 'reset' | 'button';
-  // type?: React.ComponentProps<'button'>;
-}
 
-export const Button: React.FC<Props> = ({ children, ...buttonProps }) => {
-  return (
-
-    <button className="button"{...buttonProps}>
-      {children}
-    </button>
-
-  )
-}
 
 
 

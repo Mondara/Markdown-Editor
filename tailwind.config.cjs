@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+/*eslint-env node*/
 
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -27,6 +28,10 @@ module.exports = {
         Roboto: ["Roboto", "san-serif"],
         "Roboto-Mono": ["Roboto Mono", "monospace"],
         "Roboto-Slab": ["Roboto Slab", "serif"],
+      },
+      screens: {
+        //tablet: { max: "765px" },
+        mobile: { max: "730px" },
       },
     },
   },

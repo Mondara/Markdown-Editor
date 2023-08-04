@@ -28,7 +28,7 @@ export const CreateDocModal: React.FC<Props> = ({ closeModal }) => {
             value={docName}
             onChange={(e) => setDocName(e.target.value)}
             required
-            className="modal-input-color h-12 rounded "
+            className="modal-input-color h-12 rounded p-2"
           />
         </div>
       }

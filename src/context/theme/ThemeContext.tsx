@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 import { getItem } from '../../utilities'
 
 export type ThemeType = 'dark' | 'light';

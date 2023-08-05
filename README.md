@@ -39,8 +39,8 @@ Create, Read, Update, and Delete markdown documents
 
 ### Links
 
-- Solution URL: [Solution](https://your-solution-url.com)
-- Live Site URL: [Live Site](https://your-live-site-url.com)
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/in-browser-markdown-editor-5IJEhwVeEG)
+- Live Site URL: [Live Site](https://markdown-editor-mt.netlify.app/)
 
 ## My process
 

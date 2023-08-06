@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MarkdownContext, ThemeContext } from '../../context';
+import { useMarkdownContext, useThemeContext } from '../../context';
 import { Switch } from '../utilities';
 
 interface Props {
@@ -8,8 +8,8 @@ interface Props {
 }
 
 export const Sidebar: React.FC<Props> = ({ openModal }) => {
-    const { theme } = React.useContext(ThemeContext);
-    const { docs, handleCurrDocChange, currDoc } = React.useContext(MarkdownContext);
+    const { theme } = useThemeContext();
+    const { docs, handleCurrDocChange, currDoc } = useMarkdownContext();
 
     return (
         <div className="bg-dark-gray-3 w-full h-full flex flex-col justify-between p-6">

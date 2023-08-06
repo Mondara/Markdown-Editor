@@ -6,6 +6,10 @@ import { Doc } from '../../types';
 import { getDate, getItem, setItem } from '../../utilities';
 import { MarkdownContext } from './MarkdownContext';
 
+export const useMarkdownContext = () => {
+    return React.useContext(MarkdownContext)
+}
+
 export const MarkdownProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [docs, setDocs] = React.useState<Doc[]>(getItem('docs') ?? [...data]);
     const [currDoc, setCurrDoc] = React.useState<Doc>(getItem('currDoc') ?? data[0]);
@@ -39,7 +43,7 @@ export const MarkdownProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
 
     const saveDoc = () => {
-        if(docs.length === 0) {
+        if (docs.length === 0) {
             setDocs([currDoc]);
         } else {
             const updatedDocs = docs.map((doc) => doc.id === currDoc.id ? currDoc : doc)

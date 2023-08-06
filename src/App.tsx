@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { CreateDocModal, DeleteDocModal, Editor, Header, Preview, Sidebar } from './components';
-import { MarkdownContext } from './context';
+import { useMarkdownContext } from './context';
 
 function App() {
-  const { currDoc, handleChange } = React.useContext(MarkdownContext);
+  const { currDoc, handleChange } = useMarkdownContext();
 
   // const [input, setInput] = React.useState(data[1].content)
   const [showEditor, setShowEditor] = React.useState<boolean>(true);

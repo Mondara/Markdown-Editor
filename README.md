@@ -1,6 +1,6 @@
 # Frontend Mentor - In-browser markdown editor
 
-This is a solution to the [In-browser markdown editor](https://www.frontendmentor.io/challenges/inbrowser-markdown-editor-r16TrrQX9). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [In-browser markdown editor](https://www.frontendmentor.io/challenges/inbrowser-markdown-editor-r16TrrQX9).
 
 ## Table of contents
 
@@ -19,7 +19,6 @@ This is a solution to the [In-browser markdown editor](https://www.frontendmento
 ## Overview
 
 ### The challenge
-
 
 Users should be able to:
 

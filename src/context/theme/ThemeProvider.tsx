@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { ThemeContext, initialThemeState, ThemeType } from './ThemeContext';
-import { setItem } from '../../utilities'
+import { setItem } from '../../utilities_functions'
 
 export const useThemeContext = () => {
     return useContext(ThemeContext);

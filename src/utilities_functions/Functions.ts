@@ -16,7 +16,7 @@ const MONTHS = [
   "Dec",
 ];
 
-const getDate = (date?: string) => {
+const getDate = (date?: string | number) => {
   const d = date ? new Date(date) : new Date();
 
   return `${MONTHS[d.getMonth()]} ${d.getDate()} ${d.getFullYear()}`;

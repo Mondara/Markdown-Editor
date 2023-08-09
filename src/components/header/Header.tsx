@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { MarkdownContext } from '../../context';
+import { Tooltip } from '../utilities';
 
 interface Props {
     toggleSidebar: () => void;
@@ -8,9 +9,13 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({ toggleSidebar, openDeleteDocModal }) => {
-    const { docs, currDoc, saveDoc, updateDoc } = React.useContext(MarkdownContext);
+    const { docs, currDoc, saveDoc, updateDoc, downloadFile } = React.useContext(MarkdownContext);
 
-    const [docName, setDocName] = React.useState(currDoc.name)
+    const [docName, setDocName] = React.useState(currDoc.name);
+
+    const handleFileDownload = () => {
+        downloadFile(currDoc)
+    };
 
     React.useEffect(() => {
         setDocName(currDoc.name)
@@ -26,7 +31,7 @@ export const Header: React.FC<Props> = ({ toggleSidebar, openDeleteDocModal }) =
 
     return (
         <div className="w-full h-full header-color header-text-color flex-between">
-            <div className="w-fit h-full flex items-center gap-8">
+            <div className="w-fit h-full flex items-center gap-8 max-w-[60%]">
 
                 <button className="w-20 h-full bg-dark-gray flex-center hover:bg-orange" onClick={() => toggleSidebar()}>
                     <svg className="fill-white" width="30" height="18" xmlns="http://www.w3.org/2000/svg">
@@ -56,15 +61,27 @@ export const Header: React.FC<Props> = ({ toggleSidebar, openDeleteDocModal }) =
                 </div>
             </div>
 
-            <div className="flex items-center gap-8 p-2 mr-2">
-                <button onClick={openDeleteDocModal} disabled={docs.length === 0}>
-                    <svg className={`fill-light-gray-3 ${docs.length != 0 ? 'hover:fill-orange' : ""}`} width="18" height="20" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 16a1 1 0 0 0 1-1V9a1 1 0 1 0-2 0v6a1 1 0 0 0 1 1ZM17 4h-4V3a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v1H1a1 1 0 1 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V6h1a1 1 0 0 0 0-2ZM7 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1H7V3Zm7 14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6h10v11Zm-3-1a1 1 0 0 0 1-1V9a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z" />
-                    </svg>
-                </button>
+            <div className="flex items-center gap-8 mobile:gap-4 p-2 mr-2">
+                <div className="flex items-center gap-4">
+                    <div className="flex">
+                        <Tooltip description="Download file">
+                            <button className="btn" onClick={handleFileDownload}>
+                                <svg className={`fill-light-gray-3 ${docs.length != 0 ? 'hover:fill-orange' : ""}`} width="18" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 9h-6l8-9 8 9h-6v11h-4v-11zm11 11v2h-18v-2h-2v4h22v-4h-2z" /></svg>
+                            </button>
+                        </Tooltip>
+                    </div>
+                    <Tooltip description="Delete file">
+                        <button onClick={openDeleteDocModal} disabled={docs.length === 0}>
+                            <svg className={`fill-light-gray-3 ${docs.length != 0 ? 'hover:fill-orange' : ""}`} width="18" height="20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 16a1 1 0 0 0 1-1V9a1 1 0 1 0-2 0v6a1 1 0 0 0 1 1ZM17 4h-4V3a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v1H1a1 1 0 1 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V6h1a1 1 0 0 0 0-2ZM7 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1H7V3Zm7 14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6h10v11Zm-3-1a1 1 0 0 0 1-1V9a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z" />
+                            </svg>
+                        </button>
+                    </Tooltip>
+                </div>
+
 
                 <button
-                    className="flex items-center gap-2 bg-orange hover:bg-orange-light p-4 rounded text-white hover:opacity-75"
+                    className="button"
                     onClick={() => saveDoc()}
                 >
                     <svg width="17" height="17" xmlns="http://www.w3.org/2000/svg">
@@ -76,4 +93,5 @@ export const Header: React.FC<Props> = ({ toggleSidebar, openDeleteDocModal }) =
         </div>
 
     )
-}
+};
+

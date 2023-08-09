@@ -1,11 +1,11 @@
 import React from "react";
-import { getItem } from '../../utilities'
+import { getItem } from '../../utilities_functions'
 
 export type ThemeType = 'dark' | 'light';
 
 interface IThemeContext {
     theme: ThemeType;
-    toggleTheme: () => void | null;
+    toggleTheme: () => void;
 }
 
 export const initialThemeState: IThemeContext = {

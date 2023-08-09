@@ -1,16 +1,21 @@
 import React from 'react';
 
 import data from '../../data/data.json';
+import { MarkDownContextType } from '../../types';
 
-const initialState = {
+
+
+const initialState: MarkDownContextType = {
     docs: [...data],
     currDoc: data[0],
-    handleCurrDocChange: (idx: number) => { },
-    handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => { },
+    handleCurrDocChange: () => { },
+    handleChange: () => { },
     saveDoc: () => { },
     deleteDoc: () => { },
-    newDoc: (name?: string) => { },
-    updateDoc: (name: string) => { }
+    newDoc: () => { },
+    updateDoc: () => { },
+    uploadFile: () => { },
+    downloadFile: () => { },
 }
 
 export const MarkdownContext = React.createContext(initialState);

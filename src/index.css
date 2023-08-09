@@ -138,6 +138,9 @@
   @apply text-dark-gray font-normal text-sm;
 }
 
+.preview a {
+  @apply hover:underline;
+}
 /* Text Styles */
 .heading-small {
   font-size: 0.875rem;

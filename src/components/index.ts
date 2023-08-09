@@ -4,3 +4,4 @@ export * from "./preview";
 export * from "./sidebar";
 export * from "./utilities";
 export * from "./modals";
+export * from "./uploadBtn";

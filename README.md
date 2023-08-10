@@ -53,6 +53,7 @@ Create, Read, Update, and Delete markdown documents
 - CSS Grid
 - [React](https://reactjs.org/) - JS library
 - [Tailwind CSS](https://tailwindcss.com/) - Tailwind CSS
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction) - Package to add toast notifications
 
 
 ### Continued development

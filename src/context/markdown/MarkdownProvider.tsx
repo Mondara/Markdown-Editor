@@ -59,7 +59,7 @@ export const MarkdownProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
 
-        link.download = `${file.name}`;
+        link.download = `${file.name}${!file.name.includes(".md") ? ".md" : ""}`;
         link.href = url;
         link.click();
     }
